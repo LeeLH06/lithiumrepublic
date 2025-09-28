@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "cart": "Cart",
+    "checkout": "Checkout",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroTitle": "Welcome to Lithium Republic",
+    "heroSubtitle": "Where creativity meets technology. Discover innovative solutions for the modern world.",
+    "ctaButton": "Explore Our Products",
+    "aboutTitle": "About Us",
+    "aboutText1": "Lithium Republic is a forward-thinking technology company dedicated to pushing the boundaries of innovation. We believe in the power of technology to transform lives and businesses.",
+    "aboutText2": "Our team of experts combines creative thinking with technical excellence to deliver solutions that are not only functional but also aesthetically pleasing and user-friendly.",
+    "aboutText3": "Founded with a vision to bridge the gap between creativity and technology, we've been serving clients worldwide with cutting-edge products and services.",
+    "productsTitle": "Our Products",
+    "featuresTitle": "Why Choose Us",
+    "feature1Title": "Innovative Solutions",
+    "feature1Desc": "We stay ahead with cutting-edge technology and creative problem-solving approaches.",
+    "feature2Title": "Secure & Reliable",
+    "feature2Desc": "Your data and transactions are protected with state-of-the-art security measures.",
+    "feature3Title": "Expert Team",
+    "feature3Desc": "Our skilled professionals are dedicated to delivering excellence in every project."
+  },
+  "common": {
+    "addToCart": "Add to Cart",
+    "cartTotal": "Total",
+    "proceedCheckout": "Proceed to Checkout",
+    "continueShopping": "Continue Shopping",
+    "itemAdded": "Item added to cart!",
+    "emptyCart": "Your cart is empty",
+    "copyright": "All rights reserved"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "home": "Utama",
+    "products": "Produk",
+    "cart": "Troli",
+    "checkout": "Checkout",
+    "about": "Tentang Kami",
+    "contact": "Hubungi"
+  },
+  "home": {
+    "heroTitle": "Selamat Datang ke Lithium Republic",
+    "heroSubtitle": "Di mana kreativiti bertemu teknologi. Temui penyelesaian inovatif untuk dunia moden.",
+    "ctaButton": "Terokai Produk Kami",
+    "aboutTitle": "Tentang Kami",
+    "aboutText1": "Lithium Republic adalah syarikat teknologi yang berdedikasi untuk mendorong batasan inovasi. Kami percaya pada kuasa teknologi untuk mengubah kehidupan dan perniagaan.",
+    "aboutText2": "Pasukan pakar kami menggabungkan pemikiran kreatif dengan kecemerlangan teknikal untuk memberikan penyelesaian yang bukan sahaja berfungsi tetapi juga estetik dan mesra pengguna.",
+    "aboutText3": "Ditubuhkan dengan visi untuk merapatkan jurang antara kreativiti dan teknologi, kami telah berkhidmat kepada pelanggan di seluruh dunia dengan produk dan perkhidmatan terkini.",
+    "productsTitle": "Produk Kami",
+    "featuresTitle": "Mengapa Pilih Kami",
+    "feature1Title": "Penyelesaian Inovatif",
+    "feature1Desc": "Kami sentiasa di depan dengan teknologi canggih dan pendekatan penyelesaian masalah yang kreatif.",
+    "feature2Title": "Selamat & Boleh Dipercayai",
+    "feature2Desc": "Data dan transaksi anda dilindungi dengan langkah keselamatan terkini kami.",
+    "feature3Title": "Pasukan Pakar",
+    "feature3Desc": "Profesional kami yang mahir berdedikasi untuk memberikan kecemerlangan dalam setiap projek."
+  },
+  "common": {
+    "addToCart": "Tambah ke Troli",
+    "cartTotal": "Jumlah",
+    "proceedCheckout": "Teruskan ke Checkout",
+    "continueShopping": "Teruskan Membeli-belah",
+    "itemAdded": "Item ditambah ke troli!",
+    "emptyCart": "Troli anda kosong",
+    "copyright": "Hak cipta terpelihara"
+  }
+}

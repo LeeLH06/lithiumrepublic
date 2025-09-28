@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "home": "首页",
+    "products": "产品",
+    "cart": "购物车",
+    "checkout": "结账",
+    "about": "关于我们",
+    "contact": "联系我们"
+  },
+  "home": {
+    "heroTitle": "欢迎来到 Lithium Republic",
+    "heroSubtitle": "创意与科技相遇的地方。发现现代世界的创新解决方案。",
+    "ctaButton": "探索我们的产品",
+    "aboutTitle": "关于我们",
+    "aboutText1": "Lithium Republic 是一家致力于推动创新边界的前瞻性科技公司。我们相信科技的力量可以改变生活和企业。",
+    "aboutText2": "我们的专家团队结合创造性思维和技术卓越，提供不仅功能强大而且美观易用的解决方案。",
+    "aboutText3": "本着弥合创意与技术之间差距的愿景成立，我们一直以尖端产品和服务为全球客户服务。",
+    "productsTitle": "我们的产品",
+    "featuresTitle": "为何选择我们",
+    "feature1Title": "创新解决方案",
+    "feature1Desc": "我们通过尖端技术和创造性解决问题的方法保持领先。",
+    "feature2Title": "安全可靠",
+    "feature2Desc": "您的数据和交易受到我们最先进安全措施的保护。",
+    "feature3Title": "专家团队",
+    "feature3Desc": "我们熟练的专业人员致力于在每个项目中提供卓越服务。"
+  },
+  "common": {
+    "addToCart": "加入购物车",
+    "cartTotal": "总计",
+    "proceedCheckout": "进行结账",
+    "continueShopping": "继续购物",
+    "itemAdded": "商品已加入购物车！",
+    "emptyCart": "您的购物车是空的",
+    "copyright": "版权所有"
+  }
+}

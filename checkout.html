@@ -1,86 +1,331 @@
-(function(){
-// Lithium Republic Checkout Page
-})()
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Checkout - Lithium Republic</title>
-	<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Checkout - Complete Your Order">
+  <title>Checkout - Lithium Republic</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<header>
-		<h1>Checkout</h1>
-		<nav>
-			<a href="index.html">Home</a>
-			<a href="products.html">Products</a>
-			<a href="cart.html">Cart</a>
-			<a href="checkout.html">Checkout</a>
-		</nav>
-	</header>
+  <header>
+    <div class="header-container">
+      <div class="logo-container">
+        <a href="index.html" class="logo-link">
+          <div class="logo">LR</div>
+          <span class="logo-text">Lithium Republic</span>
+        </a>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="cart.html" class="nav-link">Cart</a>
+        <a href="checkout.html" class="nav-link active">Checkout</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <button class="mobile-nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
 
-	<main>
-		<section>
-			<h2>Order Summary</h2>
-			<ul id="checkout-cart-items">
-				<!-- Items will be added here by JavaScript -->
-			</ul>
-			<p id="checkout-cart-total">Total: RM0.00</p>
-			<div id="paypal-button-container" style="margin-top: 20px;"></div>
-		</section>
-	</main>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Checkout</h1>
+        <p>Complete your purchase with secure payment</p>
+      </div>
+    </section>
 
-	<footer>
-		<p>&copy; 2025 Lithium Republic</p>
-	</footer>
+    <section class="checkout-section">
+      <div class="checkout-container">
+        <div class="checkout-form">
+          <h2 class="section-title">Shipping Information</h2>
+          <form class="checkout-form-content">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" required>
+            </div>
 
-	<script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=MYR"></script>
-	<script>
-		// Load cart from localStorage
-		let cart = JSON.parse(localStorage.getItem('cart')) || [];
-		const cartItemsList = document.getElementById('checkout-cart-items');
-		const cartTotalElement = document.getElementById('checkout-cart-total');
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required>
+            </div>
 
-		function updateCartDisplay() {
-			cartItemsList.innerHTML = '';
-			let total = 0;
-			cart.forEach(item => {
-				const li = document.createElement('li');
-				li.textContent = `${item.product} - RM${parseFloat(item.price).toFixed(2)}`;
-				cartItemsList.appendChild(li);
-				total += parseFloat(item.price);
-			});
-			cartTotalElement.textContent = `Total: RM${total.toFixed(2)}`;
-			return total;
-		}
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
 
-		updateCartDisplay();
+            <div class="form-group">
+              <label for="address">Street Address</label>
+              <input type="text" id="address" name="address" required>
+            </div>
 
-		// PayPal integration
-		paypal.Buttons({
-			createOrder: function(data, actions) {
-				const total = updateCartDisplay();
-				return actions.order.create({
-					purchase_units: [{
-						amount: {
-							value: total.toFixed(2),
-							currency_code: 'MYR'
-						},
-						description: 'Lithium Republic Cart Purchase'
-					}]
-				});
-			},
-			onApprove: function(data, actions) {
-				return actions.order.capture().then(function(details) {
-					alert('Payment completed by ' + details.payer.name.given_name + '!');
-					// Optionally clear cart
-					localStorage.removeItem('cart');
-					cart = [];
-					updateCartDisplay();
-				});
-			}
-		}).render('#paypal-button-container');
-	</script>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" required>
+              </div>
+
+              <div class="form-group">
+                <label for="postcode">Postcode</label>
+                <input type="text" id="postcode" name="postcode" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="state">State</label>
+              <select id="state" name="state" required>
+                <option value="">Select State</option>
+                <option value="johor">Johor</option>
+                <option value="kedah">Kedah</option>
+                <option value="kelantan">Kelantan</option>
+                <option value="kl">Kuala Lumpur</option>
+                <option value="labuan">Labuan</option>
+                <option value="melaka">Melaka</option>
+                <option value="nsembilan">Negeri Sembilan</option>
+                <option value="pahang">Pahang</option>
+                <option value="penang">Penang</option>
+                <option value="perak">Perak</option>
+                <option value="perlis">Perlis</option>
+                <option value="sabah">Sabah</option>
+                <option value="sarawak">Sarawak</option>
+                <option value="selangor">Selangor</option>
+                <option value="terengganu">Terengganu</option>
+              </select>
+            </div>
+
+            <h2 class="section-title">Payment Method</h2>
+
+            <div class="payment-methods">
+              <div class="payment-option">
+                <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" checked>
+                <label for="creditCard">Credit/Debit Card</label>
+              </div>
+
+              <div class="payment-option">
+                <input type="radio" id="paypal" name="paymentMethod" value="paypal">
+                <label for="paypal">PayPal</label>
+              </div>
+
+              <div class="payment-option">
+                <input type="radio" id="bankTransfer" name="paymentMethod" value="bankTransfer">
+                <label for="bankTransfer">Bank Transfer</label>
+              </div>
+            </div>
+
+            <div class="card-details" id="cardDetails">
+              <div class="form-group">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="expiryDate">Expiry Date</label>
+                  <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY">
+                </div>
+
+                <div class="form-group">
+                  <label for="cvv">CVV</label>
+                  <input type="text" id="cvv" name="cvv" placeholder="123">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="cardName">Name on Card</label>
+                <input type="text" id="cardName" name="cardName">
+              </div>
+            </div>
+
+            <div class="form-group terms">
+              <input type="checkbox" id="terms" name="terms" required>
+              <label for="terms">I agree to the <a href="terms.html">Terms and Conditions</a> and <a href="privacy.html">Privacy Policy</a></label>
+            </div>
+
+            <button type="submit" class="checkout-btn">Complete Order</button>
+          </form>
+        </div>
+
+        <div class="order-summary">
+          <h2 class="section-title">Order Summary</h2>
+          <div class="summary-content">
+            <ul class="order-items">
+              <!-- Order items will be dynamically added here -->
+            </ul>
+
+            <div class="summary-totals">
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <span class="subtotal-amount">RM0.00</span>
+              </div>
+
+              <div class="summary-row">
+                <span>Shipping</span>
+                <span class="shipping-amount">RM10.00</span>
+              </div>
+
+              <div class="summary-row">
+                <span>Tax</span>
+                <span class="tax-amount">RM0.00</span>
+              </div>
+
+              <div class="summary-row total">
+                <span>Total</span>
+                <span class="total-amount">RM0.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <a href="index.html">
+          <div class="footer-logo-img">LR</div>
+          <span>Lithium Republic</span>
+        </a>
+      </div>
+      <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+      <p class="copyright">&copy; 2025 Lithium Republic. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Checkout page specific functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load cart items into order summary
+      updateOrderSummary();
+      
+      // Handle payment method changes
+      const paymentMethods = document.querySelectorAll('input[name="paymentMethod"]');
+      const cardDetails = document.getElementById('cardDetails');
+      
+      paymentMethods.forEach(method => {
+        method.addEventListener('change', function() {
+          if (this.value === 'creditCard') {
+            cardDetails.style.display = 'block';
+          } else {
+            cardDetails.style.display = 'none';
+          }
+        });
+      });
+      
+      // Handle form submission
+      const checkoutForm = document.querySelector('.checkout-form-content');
+      checkoutForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate form
+        if (!validateCheckoutForm()) {
+          return;
+        }
+        
+        // Process order
+        processOrder();
+      });
+    });
+    
+    function updateOrderSummary() {
+      const orderItems = document.querySelector('.order-items');
+      const subtotalElement = document.querySelector('.subtotal-amount');
+      const shippingElement = document.querySelector('.shipping-amount');
+      const taxElement = document.querySelector('.tax-amount');
+      const totalElement = document.querySelector('.total-amount');
+      
+      // Get cart from localStorage
+      const cart = JSON.parse(localStorage.getItem('lithiumRepublicCart')) || [];
+      
+      // Clear current order items
+      orderItems.innerHTML = '';
+      
+      let subtotal = 0;
+      
+      // Add each item to the order summary
+      cart.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.className = 'order-item';
+        
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+        
+        listItem.innerHTML = `
+          <div class="order-item-info">
+            <span>${item.product} × ${item.quantity}</span>
+          </div>
+          <span class="order-item-price">RM${itemTotal.toFixed(2)}</span>
+        `;
+        
+        orderItems.appendChild(listItem);
+      });
+      
+      // Calculate totals
+      const shipping = 10.00; // Fixed shipping cost
+      const tax = subtotal * 0.06; // 6% tax
+      const total = subtotal + shipping + tax;
+      
+      // Update display
+      subtotalElement.textContent = `RM${subtotal.toFixed(2)}`;
+      shippingElement.textContent = `RM${shipping.toFixed(2)}`;
+      taxElement.textContent = `RM${tax.toFixed(2)}`;
+      totalElement.textContent = `RM${total.toFixed(2)}`;
+    }
+    
+    function validateCheckoutForm() {
+      const form = document.querySelector('.checkout-form-content');
+      const requiredFields = form.querySelectorAll('[required]');
+      let isValid = true;
+      
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          field.style.borderColor = '#ff6b6b';
+          isValid = false;
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+      
+      if (!isValid) {
+        alert('Please fill in all required fields.');
+        return false;
+      }
+      
+      const terms = document.getElementById('terms');
+      if (!terms.checked) {
+        alert('Please agree to the Terms and Conditions.');
+        return false;
+      }
+      
+      return true;
+    }
+    
+    function processOrder() {
+      // In a real application, you would process the payment here
+      alert('Thank you for your order! Your payment has been processed successfully.');
+      
+      // Clear the cart
+      localStorage.removeItem('lithiumRepublicCart');
+      
+      // Redirect to confirmation page
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 2000);
+    }
+  </script>
 </body>
 </html>
