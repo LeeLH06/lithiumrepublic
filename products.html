@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lithium Republic - Products</title>
+  <style>
+    /* CSS Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --primary-black: #1a1a1a;
+      --secondary-black: #2d2d2d;
+      --dark-gray: #404040;
+      --medium-gray: #666666;
+      --light-gray: #e0e0e0;
+      --off-white: #f8f8f8;
+      --pure-white: #ffffff;
+      --accent-gray: #888888;
+      --border-radius: 4px;
+      --box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+    
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--primary-black);
+      background-color: var(--off-white);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--pure-white);
+      padding: 1rem 0;
+      box-shadow: var(--box-shadow);
+      border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--primary-black);
+      text-decoration: none;
+      letter-spacing: -1px;
+    }
+    
+    .logo span {
+      font-weight: 300;
+    }
+    
+    /* Navigation Styles */
+    nav {
+      width: 100%;
+      margin-top: 1rem;
+    }
+    
+    .nav-list {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    
+    .nav-item {
+      margin: 0.5rem;
+    }
+    
+    .nav-link {
+      color: var(--medium-gray);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+    
+    .nav-link:hover,
+    .nav-link:focus {
+      color: var(--primary-black);
+      background-color: var(--light-gray);
+    }
+    
+    .nav-link[aria-current="page"] {
+      color: var(--primary-black);
+      border-bottom: 2px solid var(--primary-black);
+    }
+    
+    /* Main Content Styles */
+    main {
+      flex: 1;
+      padding: 2rem 0;
+    }
+    
+    .section {
+      margin-bottom: 3rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-black);
+      text-align: center;
+      position: relative;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+    }
+    
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 2px;
+      background-color: var(--primary-black);
+      margin: 0.5rem auto;
+    }
+    
+    /* Product Grid Styles */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .product-card {
+      background-color: var(--pure-white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      border: 1px solid var(--light-gray);
+      transition: var(--transition);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-image {
+      width: 100%;
+      height: 200px;
+      background-color: var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--medium-gray);
+      font-size: 1.2rem;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .product-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .product-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-black);
+      font-weight: 500;
+    }
+    
+    .product-description {
+      color: var(--medium-gray);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+    
+    .product-price {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary-black);
+      margin-bottom: 1rem;
+    }
+    
+    .add-to-cart-btn {
+      background-color: var(--primary-black);
+      color: var(--pure-white);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: var(--transition);
+      width: 100%;
+    }
+    
+    .add-to-cart-btn:hover {
+      background-color: var(--secondary-black);
+    }
+    
+    .cart-notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: var(--primary-black);
+      color: var(--pure-white);
+      padding: 1rem 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      display: none;
+      z-index: 1000;
+      animation: slideIn 0.3s ease;
+    }
+    
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
+    /* Cart Summary */
+    .cart-summary {
+      background-color: var(--pure-white);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      border: 1px solid var(--light-gray);
+      margin-top: 2rem;
+      max-width: 300px;
+      margin-left: auto;
+    }
+    
+    .cart-summary h3 {
+      margin-bottom: 1rem;
+      color: var(--primary-black);
+      font-weight: 500;
+    }
+    
+    .cart-items {
+      list-style: none;
+      margin-bottom: 1rem;
+    }
+    
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--light-gray);
+    }
+    
+    .checkout-btn {
+      background-color: var(--primary-black);
+      color: var(--pure-white);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: var(--transition);
+      width: 100%;
+      margin-top: 1rem;
+    }
+    
+    .checkout-btn:hover {
+      background-color: var(--secondary-black);
+    }
+    
+    /* Footer Styles */
+    footer {
+      background-color: var(--secondary-black);
+      color: var(--pure-white);
+      padding: 3rem 0 1.5rem;
+      margin-top: auto;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .footer-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--pure-white);
+      text-decoration: none;
+      letter-spacing: -1px;
+    }
+    
+    .footer-logo span {
+      font-weight: 300;
+    }
+    
+    .footer-nav {
+      margin: 1.5rem 0;
+    }
+    
+    .footer-nav-list {
+      display: flex;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .footer-nav-item {
+      margin: 0.5rem 1rem;
+    }
+    
+    .footer-nav-link {
+      color: var(--light-gray);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+    
+    .footer-nav-link:hover {
+      color: var(--pure-white);
+    }
+    
+    .copyright {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--light-gray);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        text-align: center;
+      }
+      
+      .nav-list {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .cart-summary {
+        max-width: 100%;
+      }
+    }
+    
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--primary-black);
+      color: white;
+      padding: 8px;
+      z-index: 100;
+      text-decoration: none;
+    }
+    
+    .skip-link:focus {
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <header role="banner">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">Lithium <span>Republic</span></a>
+        <nav role="navigation" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="products.html" class="nav-link" aria-current="page">Products</a></li>
+            <li class="nav-item"><a href="cart.html" class="nav-link">Cart</a></li>
+            <li class="nav-item"><a href="checkout.html" class="nav-link">Checkout</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+    <div class="container">
+      <section class="section" aria-labelledby="products-heading">
+        <h2 id="products-heading" class="section-title">Our Products</h2>
+        
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-image">
+              [Product Image]
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Lithium T-Shirt</h3>
+              <p class="product-description">Premium quality cotton t-shirt with the Lithium Republic logo. Comfortable fit for everyday wear.</p>
+              <p class="product-price">RM49.90</p>
+              <button class="add-to-cart-btn" data-product="Lithium T-Shirt" data-price="49.90">Add to Cart</button>
+            </div>
+          </div>
+          
+          <div class="product-card">
+            <div class="product-image">
+              [Product Image]
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Lithium Hoodie</h3>
+              <p class="product-description">Warm and stylish hoodie featuring the Lithium Republic branding. Perfect for cooler days.</p>
+              <p class="product-price">RM99.90</p>
+              <button class="add-to-cart-btn" data-product="Lithium Hoodie" data-price="99.90">Add to Cart</button>
+            </div>
+          </div>
+          
+          <div class="product-card">
+            <div class="product-image">
+              [Product Image]
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Lithium Cap</h3>
+              <p class="product-description">Adjustable cap with embroidered Lithium Republic logo. UV protection for sunny days.</p>
+              <p class="product-price">RM39.90</p>
+              <button class="add-to-cart-btn" data-product="Lithium Cap" data-price="39.90">Add to Cart</button>
+            </div>
+          </div>
+          
+          <div class="product-card">
+            <div class="product-image">
+              [Product Image]
+            </div>
+            <div class="product-content">
+              <h3 class="product-title">Lithium Water Bottle</h3>
+              <p class="product-description">Durable stainless steel water bottle with Lithium Republic design. Keeps drinks hot or cold for hours.</p>
+              <p class="product-price">RM79.90</p>
+              <button class="add-to-cart-btn" data-product="Lithium Water Bottle" data-price="79.90">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cart-summary">
+          <h3>Cart Summary</h3>
+          <ul class="cart-items">
+            <!-- Cart items will be dynamically added here -->
+          </ul>
+          <div class="cart-total">
+            <span>Total:</span>
+            <span>RM0.00</span>
+          </div>
+          <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="cart-notification" id="cartNotification">
+    Item added to cart!
+  </div>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <a href="index.html" class="footer-logo">Lithium <span>Republic</span></a>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item"><a href="index.html" class="footer-nav-link">Home</a></li>
+            <li class="footer-nav-item"><a href="products.html" class="footer-nav-link">Products</a></li>
+            <li class="footer-nav-item"><a href="about.html" class="footer-nav-link">About</a></li>
+            <li class="footer-nav-item"><a href="contact.html" class="footer-nav-link">Contact</a></li>
+            <li class="footer-nav-item"><a href="privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+            <li class="footer-nav-item"><a href="terms.html" class="footer-nav-link">Terms of Service</a></li>
+          </ul>
+        </nav>
+        <p class="copyright">&copy; 2025 Lithium Republic. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Cart functionality
+    let cart = [];
+    
+    // Get DOM elements
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+    const cartItemsList = document.querySelector('.cart-items');
+    const cartTotalElement = document.querySelector('.cart-total span:last-child');
+    const cartNotification = document.getElementById('cartNotification');
+    const checkoutButton = document.querySelector('.checkout-btn');
+    
+    // Add to cart functionality
+    addToCartButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const product = this.getAttribute('data-product');
+        const price = parseFloat(this.getAttribute('data-price'));
+        
+        addToCart(product, price);
+        showNotification();
+        updateCartDisplay();
+      });
+    });
+    
+    // Add item to cart
+    function addToCart(product, price) {
+      // Check if product already exists in cart
+      const existingItem = cart.find(item => item.product === product);
+      
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({
+          product: product,
+          price: price,
+          quantity: 1
+        });
+      }
+    }
+    
+    // Show notification when item is added to cart
+    function showNotification() {
+      cartNotification.style.display = 'block';
+      
+      setTimeout(() => {
+        cartNotification.style.display = 'none';
+      }, 3000);
+    }
+    
+    // Update cart display
+    function updateCartDisplay() {
+      // Clear current cart items
+      cartItemsList.innerHTML = '';
+      
+      let total = 0;
+      
+      // Add each item to the cart display
+      cart.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.className = 'cart-item';
+        
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        
+        listItem.innerHTML = `
+          <span>${item.product} (x${item.quantity})</span>
+          <span>RM${itemTotal.toFixed(2)}</span>
+        `;
+        
+        cartItemsList.appendChild(listItem);
+      });
+      
+      // Update total
+      cartTotalElement.textContent = `RM${total.toFixed(2)}`;
+    }
+    
+    // Checkout button functionality
+    checkoutButton.addEventListener('click', function() {
+      if (cart.length === 0) {
+        alert('Your cart is empty. Please add items before checking out.');
+      } else {
+        // In a real application, this would redirect to the checkout page
+        alert('Proceeding to checkout! This would redirect to the checkout page in a real application.');
+        // Here you would save the cart to localStorage or sessionStorage
+        // and redirect to the checkout page
+      }
+    });
+    
+    // Accessibility: Add focus styles for keyboard navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      const focusableElements = document.querySelectorAll('a, button, input, select, textarea');
+      
+      focusableElements.forEach(element => {
+        element.addEventListener('focus', function() {
+          this.style.outline = '2px solid var(--medium-gray)';
+          this.style.outlineOffset = '2px';
+        });
+        
+        element.addEventListener('blur', function() {
+          this.style.outline = 'none';
+        });
+      });
+      
+      // Skip link functionality
+      const skipLink = document.querySelector('.skip-link');
+      if (skipLink) {
+        skipLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.setAttribute('tabindex', '-1');
+            target.focus();
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
